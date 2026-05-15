@@ -23,7 +23,7 @@ jobs:
           npm install playwright
           npx playwright install chromium --with-deps
 
-      - name: Fetch project.json and screenshot
+      - name: Fetch projects-data.json and screenshot
         run: |
           node -e "
           const { chromium } = require('playwright');
@@ -37,9 +37,9 @@ jobs:
             const projects = [];
 
             for (const repo of repos) {
-              // Fetch project.json from GitHub
+              // Fetch projects-data.json from GitHub
               const meta = await new Promise((resolve) => {
-                https.get('https://raw.githubusercontent.com/' + repo + '/main/project.json',
+                https.get('https://raw.githubusercontent.com/' + repo + '/main/projects-data.json',
                   { headers: { 'User-Agent': 'portfolio-action' } },
                   (res) => {
                     let data = '';
