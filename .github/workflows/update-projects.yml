@@ -23,45 +23,35 @@ jobs:
           npm install playwright
           npx playwright install chromium --with-deps
 
-      - name: Fetch projects-data.json and screenshot
+      - name: Take screenshots and update projects-data.json
         run: |
           node -e "
           const { chromium } = require('playwright');
           const fs = require('fs');
-          const https = require('https');
-
-          const repos = ['pbcam0/sprint-planning'];
 
           async function run() {
+            const projects = JSON.parse(fs.readFileSync('data/projects-data.json', 'utf8'));
             const browser = await chromium.launch();
-            const projects = [];
 
-            for (const repo of repos) {
-              // Fetch projects-data.json from GitHub
-              const meta = await new Promise((resolve) => {
-                https.get('https://raw.githubusercontent.com/' + repo + '/main/projects-data.json',
-                  { headers: { 'User-Agent': 'portfolio-action' } },
-                  (res) => {
-                    let data = '';
-                    res.on('data', chunk => data += chunk);
-                    res.on('end', () => resolve(JSON.parse(data)));
-                  }
-                );
-              });
+            fs.mkdirSync('screenshots', { recursive: true });
 
-              // Take screenshot
+            for (const project of projects) {
+              const slug = project.link
+                .replace(/https?:\/\//, '')
+                .replace(/[^a-z0-9]/gi, '-')
+                .toLowerCase();
+              const filename = 'screenshots/' + slug + '.png';
+
               const page = await browser.newPage();
               await page.setViewportSize({ width: 1280, height: 800 });
-              await page.goto(meta.url, { waitUntil: 'networkidle' });
-              const filename = repo.split('/')[1] + '.png';
-              await page.screenshot({ path: 'screenshots/' + filename });
+              await page.goto(project.link, { waitUntil: 'networkidle' });
+              await page.screenshot({ path: filename });
               await page.close();
 
-              projects.push({ ...meta, screenshot: 'screenshots/' + filename });
+              project.screenshot = filename;
             }
 
             await browser.close();
-            fs.mkdirSync('screenshots', { recursive: true });
             fs.writeFileSync('data/projects-data.json', JSON.stringify(projects, null, 2));
             console.log('Done');
           }
@@ -74,5 +64,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add screenshots/ data/projects-data.json
-          git diff --staged --quiet || git commit -m "Auto-update projects"
+          git diff --staged --quiet || git commit -m "Auto-update screenshots"
           git push
