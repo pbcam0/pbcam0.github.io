@@ -1,44 +1,9 @@
 [
   {
-    "title": "Open Weather Dashboard",
-    "description": "A real-time weather dashboard with interactive charts, 7-day forecasts, and location search. Consumes the OpenWeatherMap API with client-side caching.",
-    "screenshot": "https://picsum.photos/seed/weather1/600/380",
-    "tags": ["JavaScript", "REST API", "CSS Grid", "Canvas"],
-    "link": "https://github.com"
-  },
-  {
-    "title": "Markdown Note Sync",
-    "description": "Browser-based markdown editor that syncs notes to localStorage with real-time preview, syntax highlighting, and export to PDF or HTML.",
-    "screenshot": "https://picsum.photos/seed/notes2/600/380",
-    "tags": ["TypeScript", "IndexedDB", "Web Workers", "Markdown"],
-    "link": "https://github.com"
-  },
-  {
-    "title": "Pixel Palette",
-    "description": "In-browser pixel art editor with a 64×64 canvas, custom colour palettes, animation frame support, and export to PNG or GIF.",
-    "screenshot": "https://picsum.photos/seed/pixel3/600/380",
-    "tags": ["Canvas API", "JavaScript", "Web APIs"],
-    "link": "https://github.com"
-  },
-  {
-    "title": "Recipe Finder",
-    "description": "Search over 1 million recipes by ingredients, dietary restrictions, and cuisine. Saves favourites to a shareable URL via base64-encoded state.",
-    "screenshot": "https://picsum.photos/seed/recipe4/600/380",
-    "tags": ["Vue.js", "Node.js", "PostgreSQL", "Docker"],
-    "link": "https://github.com"
-  },
-  {
-    "title": "CLI Task Runner",
-    "description": "A zero-dependency task runner for Go projects. Reads a YAML manifest and executes tasks with dependency resolution, parallel execution, and colour output.",
-    "screenshot": "https://picsum.photos/seed/cli5/600/380",
-    "tags": ["Go", "CLI", "YAML", "Open Source"],
-    "link": "https://github.com"
-  },
-  {
-    "title": "Budget Lens",
-    "description": "Personal finance tracker that parses bank CSV exports and visualises spending trends with D3.js charts. All data stays in the browser.",
-    "screenshot": "https://picsum.photos/seed/budget6/600/380",
-    "tags": ["D3.js", "JavaScript", "CSV", "Privacy-first"],
-    "link": "https://github.com"
+    "title": "Sprint Capacity Planner",
+    "description": "A tool for planning and visualizing sprint capacity in agile development.",
+    "screenshot": "https://picsum.photos/seed/sprint1/600/380",
+    "tags": ["JavaScript", "Agile", "Planning"],
+    "link": "https://sprint-planning-fawn.vercel.app/"
   }
 ]
