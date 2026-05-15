@@ -1,0 +1,5 @@
+[
+  { "id": "projects", "label": "Projects", "module": "./modules/projects.js" },
+  { "id": "photos",   "label": "Photos",   "module": "./modules/photos.js"   },
+  { "id": "cv",       "label": "CV",       "module": "./modules/cv.js"       }
+]

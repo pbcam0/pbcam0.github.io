@@ -1,0 +1,14 @@
+[
+  { "src": "https://picsum.photos/seed/ph01/800/1067", "caption": "Morning mist over the valley", "date": "2025-03" },
+  { "src": "https://picsum.photos/seed/ph02/800/533",  "caption": "Harbour at golden hour",        "date": "2025-01" },
+  { "src": "https://picsum.photos/seed/ph03/800/600",  "caption": "Neon reflections, Tokyo",      "date": "2024-11" },
+  { "src": "https://picsum.photos/seed/ph04/800/1200", "caption": "Redwood canopy",               "date": "2024-10" },
+  { "src": "https://picsum.photos/seed/ph05/800/533",  "caption": "Desert highway, Nevada",       "date": "2024-08" },
+  { "src": "https://picsum.photos/seed/ph06/800/800",  "caption": "Street market, Oaxaca",        "date": "2024-07" },
+  { "src": "https://picsum.photos/seed/ph07/800/600",  "caption": "Fog rolling in off the bay",   "date": "2024-05" },
+  { "src": "https://picsum.photos/seed/ph08/800/1067", "caption": "Wildflower meadow",            "date": "2024-04" },
+  { "src": "https://picsum.photos/seed/ph09/800/533",  "caption": "Abandoned warehouse",          "date": "2024-02" },
+  { "src": "https://picsum.photos/seed/ph10/800/600",  "caption": "Late afternoon, Lisbon",       "date": "2023-12" },
+  { "src": "https://picsum.photos/seed/ph11/800/1000", "caption": "Snow on the summit",           "date": "2023-11" },
+  { "src": "https://picsum.photos/seed/ph12/800/533",  "caption": "Low tide, Point Reyes",        "date": "2023-09" }
+]

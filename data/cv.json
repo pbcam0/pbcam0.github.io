@@ -1,0 +1,67 @@
+{
+  "personal": {
+    "name": "Alex Morgan",
+    "title": "Full-Stack Software Engineer",
+    "email": "alex.morgan@example.com",
+    "phone": "+1 (555) 234-5678",
+    "location": "San Francisco, CA",
+    "website": "alexmorgan.dev",
+    "summary": "Full-stack engineer with 8 years of experience building scalable web products at startups and growth-stage companies. Comfortable across the stack — from database schema design to polished UI — with a focus on developer experience, performance, and clear communication."
+  },
+  "links": [
+    { "label": "GitHub",   "url": "https://github.com"   },
+    { "label": "LinkedIn", "url": "https://linkedin.com" },
+    { "label": "Website",  "url": "https://example.com"  }
+  ],
+  "experience": [
+    {
+      "company": "Meridian Labs",
+      "role": "Senior Software Engineer",
+      "period": "Jan 2022 – Present",
+      "location": "San Francisco, CA (hybrid)",
+      "bullets": [
+        "Led rebuild of the core data ingestion pipeline from a monolith to an event-driven architecture, reducing P99 latency from 4 s to 210 ms.",
+        "Owned the design and rollout of a multi-tenant RBAC system handling 2 M+ users across 800 enterprise accounts.",
+        "Mentored 4 junior engineers and introduced a structured code-review culture that halved bug escape rate.",
+        "Built internal developer tooling — a CLI and VS Code extension — adopted by 100% of the engineering team within a month."
+      ]
+    },
+    {
+      "company": "Fieldwork",
+      "role": "Software Engineer",
+      "period": "Jun 2019 – Dec 2021",
+      "location": "Remote",
+      "bullets": [
+        "Developed a real-time collaborative form builder using WebSockets and CRDT-based conflict resolution.",
+        "Migrated a legacy PHP monolith to a Node.js/TypeScript microservices architecture over 18 months with zero downtime.",
+        "Reduced AWS spend by 34% through query optimisation, caching strategy, and right-sizing EC2 fleets.",
+        "Shipped a mobile-responsive design system used across 6 internal products."
+      ]
+    },
+    {
+      "company": "Inkwell Studio",
+      "role": "Junior Front-End Developer",
+      "period": "Aug 2017 – May 2019",
+      "location": "Oakland, CA",
+      "bullets": [
+        "Built and maintained marketing sites and e-commerce storefronts for 12 client brands.",
+        "Implemented A/B testing infrastructure and documented a 19% increase in conversion on a key checkout flow.",
+        "Introduced automated accessibility audits into the CI pipeline, achieving WCAG 2.1 AA compliance site-wide."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "UC Berkeley",
+      "degree": "B.S. Computer Science",
+      "period": "2013 – 2017",
+      "note": "Dean's List · Senior thesis on distributed consensus algorithms"
+    }
+  ],
+  "skills": {
+    "Languages": ["JavaScript", "TypeScript", "Go", "Python", "SQL"],
+    "Frontend":  ["React", "Vue.js", "Web Components", "CSS / SCSS", "Canvas API"],
+    "Backend":   ["Node.js", "PostgreSQL", "Redis", "gRPC", "REST", "GraphQL"],
+    "Platform":  ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Linux"]
+  }
+}
