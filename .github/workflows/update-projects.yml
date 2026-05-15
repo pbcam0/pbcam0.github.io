@@ -1,0 +1,78 @@
+name: Update Projects
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # runs nightly at 2am
+  workflow_dispatch:       # lets you trigger it manually too
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Fetch project.json and screenshot
+        run: |
+          node -e "
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const https = require('https');
+
+          const repos = ['pbcam0/sprint-planning'];
+
+          async function run() {
+            const browser = await chromium.launch();
+            const projects = [];
+
+            for (const repo of repos) {
+              // Fetch project.json from GitHub
+              const meta = await new Promise((resolve) => {
+                https.get('https://raw.githubusercontent.com/' + repo + '/main/project.json',
+                  { headers: { 'User-Agent': 'portfolio-action' } },
+                  (res) => {
+                    let data = '';
+                    res.on('data', chunk => data += chunk);
+                    res.on('end', () => resolve(JSON.parse(data)));
+                  }
+                );
+              });
+
+              // Take screenshot
+              const page = await browser.newPage();
+              await page.setViewportSize({ width: 1280, height: 800 });
+              await page.goto(meta.url, { waitUntil: 'networkidle' });
+              const filename = repo.split('/')[1] + '.png';
+              await page.screenshot({ path: 'screenshots/' + filename });
+              await page.close();
+
+              projects.push({ ...meta, screenshot: 'screenshots/' + filename });
+            }
+
+            await browser.close();
+            fs.mkdirSync('screenshots', { recursive: true });
+            fs.writeFileSync('data/projects-data.json', JSON.stringify(projects, null, 2));
+            console.log('Done');
+          }
+
+          run();
+          "
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add screenshots/ data/projects-data.json
+          git diff --staged --quiet || git commit -m "Auto-update projects"
+          git push

@@ -2,8 +2,8 @@
   {
     "title": "Sprint Capacity Planner",
     "description": "A tool for planning and visualizing sprint capacity in agile development.",
-    "screenshot": "https://picsum.photos/seed/sprint1/600/380",
     "tags": ["JavaScript", "Agile", "Planning"],
-    "link": "https://sprint-planning-fawn.vercel.app/"
+    "link": "https://sprint-planning-fawn.vercel.app/",
+    "featured": true
   }
 ]
